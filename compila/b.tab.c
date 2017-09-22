@@ -73,16 +73,17 @@
 #include <iostream>
 using namespace std;
 
-// stuff from flex that bison needs to know about:
+// stuff from flex that bison needs to know about: http://aquamentus.com/flex_bison.html
 extern "C" int yylex();
 extern "C" int yyparse();
 extern "C" FILE *yyin;
  
 void yyerror(const char *s);
+int mostrar();
 
 
 /* Line 189 of yacc.c  */
-#line 86 "b.tab.c"
+#line 87 "b.tab.c"
 
 /* Enabling traces.  */
 #ifndef YYDEBUG
@@ -125,7 +126,7 @@ typedef union YYSTYPE
 {
 
 /* Line 214 of yacc.c  */
-#line 21 "b.y"
+#line 22 "b.y"
 
 	int inteiro;
 	float decimal;
@@ -133,7 +134,7 @@ typedef union YYSTYPE
 
 
 /* Line 214 of yacc.c  */
-#line 137 "b.tab.c"
+#line 138 "b.tab.c"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
@@ -145,7 +146,7 @@ typedef union YYSTYPE
 
 
 /* Line 264 of yacc.c  */
-#line 149 "b.tab.c"
+#line 150 "b.tab.c"
 
 #ifdef short
 # undef short
@@ -428,7 +429,7 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    29,    29,    31,    31,    33,    33,    33,    33
+       0,    31,    31,    33,    34,    37,    37,    37,    37
 };
 #endif
 
@@ -1336,14 +1337,14 @@ yyreduce:
         case 2:
 
 /* Line 1464 of yacc.c  */
-#line 29 "b.y"
-    {printf("asdasdAsdAsdAsdsa");;}
+#line 31 "b.y"
+    { mostrar(); ;}
     break;
 
 
 
 /* Line 1464 of yacc.c  */
-#line 1347 "b.tab.c"
+#line 1348 "b.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1555,7 +1556,7 @@ yyreturn:
 
 
 /* Line 1684 of yacc.c  */
-#line 38 "b.y"
+#line 42 "b.y"
 
 
 int main(int, char**) {
@@ -1565,6 +1566,10 @@ int main(int, char**) {
 		yyparse();
 	} while (!feof(yyin));
 	
+}
+int mostrar(){
+	printf("aeeeeesdasdas");
+	return 0;
 }
 
 void yyerror(const char *s) {

@@ -54,7 +54,7 @@ typedef union YYSTYPE
 {
 
 /* Line 1685 of yacc.c  */
-#line 21 "b.y"
+#line 22 "b.y"
 
 	int inteiro;
 	float decimal;

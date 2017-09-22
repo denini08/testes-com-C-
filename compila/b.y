@@ -9,6 +9,7 @@ extern "C" int yyparse();
 extern "C" FILE *yyin;
  
 void yyerror(const char *s);
+int mostrar();
 %}
 
 %token FLOAT
@@ -23,13 +24,15 @@ void yyerror(const char *s);
 	float decimal;
 }
 
+
 %%
 
 
-inicio : Numero Operacao Numero ;
+inicio : Numero Operacao Numero { mostrar(); };
 
-Numero : FLOAT {cout << " "<< $1 << endl;} 
-	   | INT ;
+Numero : FLOAT 
+	   | INT  
+	   ;
 
 Operacao : KW_MAIS | KW_MENOS | KW_DIVISAO | Kw_VEZES;
 	
@@ -45,6 +48,10 @@ int main(int, char**) {
 		yyparse();
 	} while (!feof(yyin));
 	
+}
+int mostrar(){
+	printf("aeeeeesdasdas");
+	return 0;
 }
 
 void yyerror(const char *s) {
