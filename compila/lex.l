@@ -15,6 +15,7 @@ using namespace std;
 "-"					{return KW_MENOS; }
 "*"					{return KW_VEZES; }
 "/"					{return KW_DIVISAO; }
-"("					{return 0;   }
+"("					{return PARENTESE_A;   }
+")"					{return PARENTESE_F; }
 .					{printf("token nao indentificado: %s", yytext);  }
 %%
