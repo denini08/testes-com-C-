@@ -1,6 +1,6 @@
 %{
 #include <iostream>
-#include "b.tab.h"
+#include "b.tab.h" 
 using namespace std;
 #define YY_DECL extern "C" int yylex()
 %}
@@ -15,5 +15,6 @@ using namespace std;
 "-"					{return KW_MENOS; }
 "*"					{return KW_VEZES; }
 "/"					{return KW_DIVISAO; }
+"("					{return 0;   }
 .					{printf("token nao indentificado: %s", yytext);  }
 %%
