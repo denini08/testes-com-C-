@@ -1,6 +1,7 @@
 %{
 #include <cstdio>
 #include <iostream>
+#include <math.h>
 using namespace std;
 
 // stuff from flex that bison needs to know about: http://aquamentus.com/flex_bison.html
@@ -24,13 +25,16 @@ void yyerror(const char *s);
 %token KW_MENOS
 %token KW_VEZES
 %token KW_DIVISAO
+%token SQRT
 
 %type <inteiro> INT 
 %type <decimal> FLOAT numero exp
+
 %union {
 	int inteiro;
 	float decimal;
 }
+
 %left KW_MAIS KW_MENOS
 %left KW_VEZES KW_DIVISAO
  
@@ -42,6 +46,8 @@ exp :exp KW_MAIS exp { $$= $1 + $3;cout << $1 << " + " << $3 << " = " << $1 + $3
 		| exp KW_VEZES exp { $$= $1 * $3;cout << $1 << " * " << $3 << " = " << $1 * $3 << endl; }
 		| exp KW_DIVISAO exp { $$= $1 / $3;cout << $1 << " / " << $3 << " = " << $1 / $3 << endl; }
 		| PARENTESE_A exp PARENTESE_F { $$ = $2; }
+		| exp KW_VEZES KW_VEZES exp { $$ = pow($1,$4); cout << $1 << " ^ " << $4 << " = " <<pow($1,$4) << endl; }
+		| SQRT PARENTESE_A exp PARENTESE_F { $$ = sqrt($3); cout << " sqrt " << $3 << " = " <<sqrt($3) << endl; }
 		| numero {$$= $1; }
 		;
 

@@ -17,5 +17,6 @@ using namespace std;
 "/"					{return KW_DIVISAO; }
 "("					{return PARENTESE_A;   }
 ")"					{return PARENTESE_F; }
+"sqrt"				{return SQRT;}
 .					{printf("token nao indentificado: %s", yytext);  }
 %%
